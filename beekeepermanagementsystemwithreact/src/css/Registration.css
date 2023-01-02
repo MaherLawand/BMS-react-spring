@@ -1,0 +1,35 @@
+.RegistrationPageWrapper{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.RegistrationFormWrapper{
+    width: 70%;
+    height: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+}
+.GeneralInfo{
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:60px;
+    padding: 20px;
+}
+.EmailPass{
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:60px;
+    padding: 20px;
+    
+}
