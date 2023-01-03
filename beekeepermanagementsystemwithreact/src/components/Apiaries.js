@@ -10,7 +10,7 @@ const Apiaries = () => {
     const [chunks, setChunks] = useState(null);
   
     const chunkSize = 14;
-    const catchData = async () => {
+    const fetchApiaries = async () => {
         try{
             await fetch('http://localhost:8080/apiary/getAllApiariesAsc/1',{
             method:"GET",
@@ -26,7 +26,7 @@ const Apiaries = () => {
         }
     }
     useEffect(()=>{
-        catchData();
+        fetchApiaries();
     },[])
     useEffect(() => {
       if (myArray) {
@@ -45,7 +45,6 @@ const Apiaries = () => {
    
     return (
         <>
-        
         <div style={{margin:"auto"}}>
         {/* <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
             <SwiperSlide className="Content"><div className="apiaries"> 
