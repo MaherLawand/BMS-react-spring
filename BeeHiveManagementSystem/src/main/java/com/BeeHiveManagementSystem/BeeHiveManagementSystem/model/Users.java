@@ -14,7 +14,8 @@ import jakarta.persistence.NamedQuery;
 
 @Entity
 @NamedQueries(value={
-    @NamedQuery(name="Users.getUserId" , query="SELECT u FROM Users u WHERE u.email=?1")
+    @NamedQuery(name="Users.getUserId" , query="SELECT u FROM Users u WHERE u.email=?1"),
+        @NamedQuery(name="Users.getUserIdd" , query="SELECT u FROM Users u WHERE u.UserId=?1")
 })
 public class Users {
 

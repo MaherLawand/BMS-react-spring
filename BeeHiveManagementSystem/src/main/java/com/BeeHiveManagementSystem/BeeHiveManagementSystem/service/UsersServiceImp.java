@@ -33,4 +33,9 @@ public class UsersServiceImp implements UsersService {
         return UsersRepository.getUserId(email);
     }
 
+    @Override
+    public Users findUserIdd(int id){
+        return UsersRepository.getUserIdd(id);
+    }
+
 }

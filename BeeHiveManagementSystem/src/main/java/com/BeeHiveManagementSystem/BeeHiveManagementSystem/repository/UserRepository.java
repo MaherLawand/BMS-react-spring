@@ -11,5 +11,6 @@ import com.BeeHiveManagementSystem.BeeHiveManagementSystem.model.Users;
 public interface UserRepository extends JpaRepository<Users,Integer>{
 
     public Users getUserId(String email);
+    public Users getUserIdd(int id);
     
 }

@@ -1,25 +1,68 @@
 import image from '../images/Hivenew.png';
 import { Link } from 'react-router-dom';
+import '../css/Home.css';
+import { useContext, useState } from 'react';
+import { Button, TextField } from '@mui/material';
+import { UserContext } from './UserContext';
+import axios from 'axios';
+
 
 const Home = () => {
+    const [email,setEmail]=useState(null);
+    const [password,setPassword]=useState(null);
+    const {userid,setUserId} = useContext(UserContext);
+    const FetchId =async () => {
+        try{
+            await fetch(decodeURIComponent(`http://localhost:8080/users/getUserId/?` + new URLSearchParams({
+                email: email
+            })),  
+            {
+            method:"GET",
+            headers:{
+                "Content-Type":"application/json/; charset=UTF-8",
+           },
+        })
+            .then((res) => res.json())
+            .then((data) => setUserId(data))
+        }catch(error){
+            console.log(error);
+        }
+    }
+    // const FetchId = async () => {
+    //     await axios.get('http://localhost:8080/users/getUserId/',{
+    //         mode: 'no-cors',
+    //         params:
+    //             decodeURIComponent(paramms)           
+    //     })
+    // }
     return ( 
         <>  
-            <div className="backgroundImageWrapper">
+            {/* <div className="backgroundImageWrapper">
                 <img src={image} className="Hive-bg" alt="bg" />
-            </div>
+            </div> */}
             <div className="introandreg">
+                <div className="login">
+                    <form >
+                        <h1> LOGIN </h1>
+                        <TextField id="standard-basic" label="Email" variant="standard" onChange={e => setEmail(e.target.value)} />
+                        <TextField id="standard-basic" label="Password" variant="standard" onChange={e => setPassword(e.target.value)} />
+                        <Button onClick={FetchId}> Login </Button>
+                    </form>
+                    <div className='register'>
+                        <p> Need an Account? </p>
+                        {userid}
+                        <Link to="/Registration" className='Reg-Btn'>Register</Link>
+                    </div>
+                    
+                    {/* <Button disabled>Disabled</Button>
+                    <Button href="#text-buttons">Link</Button> */}
+                </div>
                 <div className="intro">
                     <h1 style={{color:'white'}}> Welcome to our website about a beekeeper management system!</h1>
                     <p style={{color:'white'}}>Our system is designed to help beekeepers of all levels manage and track their bees, hives,apiaries and much more! Whether you're a beginner just starting out with a few hives, or a seasoned pro with a large apiary, our system has the tools and features you need to stay organized and on top of your beekeeping tasks.
                     With our system, you can easily record and track important information about your hives and bees, such as the location, size, and health of each hive. You can also track your harvest data, including the amount and type of honey produced.
                     Thank you for visiting our website. We hope our beekeeper management system will be a valuable tool for you in your beekeeping journey.</p>
                 </div>
-                <div className="register">
-                    <h2 style={{color:'white'}}> Registration </h2>
-                    <Link to="/Registration">Register</Link>
-                    {/* <Button disabled>Disabled</Button>
-                    <Button href="#text-buttons">Link</Button> */}
-                </div>      
             </div>
         </>
     );
