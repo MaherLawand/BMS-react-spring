@@ -1,0 +1,71 @@
+body{
+    background-image: url("E:\BMS-react-spring\bms-react-spring\beekeepermanagementsystemwithreact\src\images\Beekeeper4.png") !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+.introandreg{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.login{
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    padding: 50px;
+    width: 40%;
+    background: rgba(255, 145, 0, 0.2);
+    backdrop-filter: blur( 11px );
+    -webkit-backdrop-filter: blur( 11px );
+    gap:10px;
+    flex-grow: 1;
+}
+.intro{
+    display: flex;
+    width: 60%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 50px;
+    flex-grow: 1;
+}
+.register{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+.Reg-Btn{
+    display: flex;
+    align-items: center;
+}
+.MuiFormControl-root{
+    width: 100%;
+}
+h1,p{
+    color: white;
+}
+
+.css-whebh7-MuiInputBase-root-MuiInput-root:before{
+    border-bottom:1px solid white !important;
+}
+.MuiFormLabel-root{
+    color: white !important;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    align-items: center;
+    gap:15px;
+}
+
+
