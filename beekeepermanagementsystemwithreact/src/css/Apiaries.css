@@ -12,10 +12,23 @@ body {
   margin: 0;
   padding: 0;
 }
+.mySwiper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100% !important;
+  height: fit-content !important;
+  box-sizing: border-box;
+}
 
-.swiper {
-  width: 100vw;
-  height: 100vh;
+.swiper-wrapper{
+  width: 100% !important;
+  height: 100% !important;
+}
+.swiper-slide{
+  width: 100% !important;
+  height: 100% !important;
+  background-color: transparent !important;
 }
 
 .swiper-slide {
@@ -81,3 +94,29 @@ body {
   align-items: center;
   justify-content: center;
 }
+.pageWrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.LoadingWrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.LoadingWrap div{
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+canvas{
+  width: 15% !important;
+  height: 15% !important;
+  pointer-events: none !important;
+  vertical-align: middle !important;
+}
+

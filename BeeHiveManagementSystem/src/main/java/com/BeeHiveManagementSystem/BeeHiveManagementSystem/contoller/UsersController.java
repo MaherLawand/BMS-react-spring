@@ -17,8 +17,8 @@ public class UsersController {
     private UsersService usersService;
 
     @PostMapping("/addUser")
-    public void add(@RequestBody Users user) {
-        usersService.newUser(user);
+    public Users add(@RequestBody Users user) {
+        return usersService.newUser(user);
     }
 
     @GetMapping("/getAllUsers")
@@ -27,12 +27,13 @@ public class UsersController {
     }
 
     @GetMapping("/getUserId/")
-    public int getUserId(@RequestParam("email") String email) {
-        return usersService.findUserId(email).getUserId();
+    public Users getUserId(@RequestParam("email") String email, @RequestParam("pass") String pass) {
+        return usersService.findUserId(email,pass);
     }
 
-    @GetMapping("/getUserIdd/")
-    public int getUserIdd(@RequestParam("id") int id) {
-        return usersService.findUserIdd(id).getUserId();
+    @GetMapping("/getUser/")
+    public Users getUser(@RequestParam("email") String email) {
+        return usersService.findUser(email);
     }
+
 }

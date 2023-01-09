@@ -10,7 +10,8 @@ import com.BeeHiveManagementSystem.BeeHiveManagementSystem.model.Users;
 @Repository
 public interface UserRepository extends JpaRepository<Users,Integer>{
 
-    public Users getUserId(String email);
-    public Users getUserIdd(int id);
+    public Users getUserId(String email,String pass);
+    public Users getUser(String email);
+
     
 }

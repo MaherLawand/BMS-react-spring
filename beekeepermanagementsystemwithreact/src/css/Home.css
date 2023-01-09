@@ -10,6 +10,7 @@ body{
     flex-direction: row;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 .login{
     box-sizing: border-box;
@@ -24,6 +25,7 @@ body{
     backdrop-filter: blur( 11px );
     -webkit-backdrop-filter: blur( 11px );
     gap:10px;
+    flex-grow: 1;
 }
 .intro{
     display: flex;
@@ -33,6 +35,7 @@ body{
     justify-content: center;
     box-sizing: border-box;
     padding: 50px;
+    flex-grow: 1;
 }
 .register{
     display: flex;
@@ -45,7 +48,7 @@ body{
     align-items: center;
 }
 .MuiFormControl-root{
-    width: 50%;
+    width: 100%;
 }
 h1,p{
     color: white;
@@ -57,6 +60,12 @@ h1,p{
 .MuiFormLabel-root{
     color: white !important;
 }
-
+form{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    align-items: center;
+    gap:15px;
+}
 
 

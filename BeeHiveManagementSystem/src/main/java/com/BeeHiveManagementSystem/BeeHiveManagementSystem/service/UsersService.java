@@ -13,8 +13,9 @@ public interface UsersService {
 
     public List<Users> getAllUsers();
 
-    public Users findUserId(String email);
+    public Users findUserId(String email, String pass);
 
-    public Users findUserIdd(int id);
-    
+    public Users findUser(String email);
+
+
 }

@@ -29,13 +29,14 @@ public class UsersServiceImp implements UsersService {
         return UsersRepository.findAll();
     }
     @Override
-    public Users findUserId(String email){
-        return UsersRepository.getUserId(email);
+    public Users findUserId(String email, String pass){
+        return UsersRepository.getUserId(email,pass);
     }
 
     @Override
-    public Users findUserIdd(int id){
-        return UsersRepository.getUserIdd(id);
+    public Users findUser(String email){
+        return UsersRepository.getUser(email);
     }
+
 
 }
