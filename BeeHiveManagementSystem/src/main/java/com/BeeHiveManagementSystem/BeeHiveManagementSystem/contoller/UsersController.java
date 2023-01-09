@@ -3,13 +3,7 @@ package com.BeeHiveManagementSystem.BeeHiveManagementSystem.contoller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.BeeHiveManagementSystem.BeeHiveManagementSystem.model.Users;
 import com.BeeHiveManagementSystem.BeeHiveManagementSystem.service.UsersService;
@@ -23,8 +17,8 @@ public class UsersController {
     private UsersService usersService;
 
     @PostMapping("/addUser")
-    public void add(@RequestBody Users user) {
-        usersService.newUser(user);
+    public Users add(@RequestBody Users user) {
+        return usersService.newUser(user);
     }
 
     @GetMapping("/getAllUsers")
@@ -32,8 +26,14 @@ public class UsersController {
         return usersService.getAllUsers();
     }
 
-    @GetMapping("/getUserId/{email}")
-    public int getUserId(@PathVariable String email) {
-        return usersService.findUserId(email).getUserId();
+    @GetMapping("/getUserId/")
+    public Users getUserId(@RequestParam("email") String email, @RequestParam("pass") String pass) {
+        return usersService.findUserId(email,pass);
     }
+
+    @GetMapping("/getUser/")
+    public Users getUser(@RequestParam("email") String email) {
+        return usersService.findUser(email);
+    }
+
 }

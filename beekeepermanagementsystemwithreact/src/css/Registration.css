@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
 }
-.RegistrationFormWrapper{
+.RegistrationdivWrapper{
     width: 70%;
     height: 60%;
     display: flex;
@@ -32,4 +32,17 @@
     gap:60px;
     padding: 20px;
     
+}
+.taken label{
+    color: red !important;
+}
+.taken{
+    position: relative;
+}
+.taken::after{
+    content: "Taken Email";
+    color: red;
+    position: absolute;
+    right: 0;
+    top: 0;
 }

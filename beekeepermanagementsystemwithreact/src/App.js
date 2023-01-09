@@ -4,23 +4,23 @@ import {BrowserRouter as Router,Route,Switch} from 'react-router-dom';
 import Registration from './components/Registration';
 import AppBar from './components/AppBar';
 import ErrorPage from './components/ErrorPage';
-import Login from './components/Login';
 import Apiaries from './components/Apiaries';
+import { UserContext } from './components/UserContext';
+import { useState } from 'react';
 
 function App() {
+  const [user,setUser] = useState(null);
   return (
     <Router>
     <div className="App">
     <AppBar />
+    <UserContext.Provider value={{user,setUser}}>
       <Switch>
         <Route exact path="/">
           <Home />
         </Route>
         <Route path="/Registration">
           <Registration />
-        </Route>
-        <Route path="/Login">
-          <Login />
         </Route>
         <Route path="/Apiaries">
           <Apiaries />
@@ -29,6 +29,7 @@ function App() {
           <ErrorPage />
         </Route>    
       </Switch>
+    </UserContext.Provider>
     </div>
     </Router>
   );

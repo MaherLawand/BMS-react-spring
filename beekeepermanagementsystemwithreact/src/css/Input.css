@@ -1,0 +1,54 @@
+/* .input-container{
+	position:relative;
+  width: 100%;
+  border: 1px solid red;
+}
+.input-container label{
+	position:absolute;
+	top:0px;
+	left:0px;
+	font-size:16px;
+	color:#fff;	
+	transition: all 0.2s ease-in-out;
+}
+input{ 
+  border:0;
+  border-bottom:1px solid #555;  
+  background:transparent;
+  width:100%;
+  padding:8px 0 5px 0;
+  font-size:16px;
+  color:#fff;
+  outline: 0;
+  position: relative;
+}
+input::after{
+    content: "YES";
+    position: absolute;
+    background: yellow;
+    transform: scaleX(1);
+    transition:transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+}
+input:focus ~ label{
+	top:-12px;
+	font-size:12px;
+}
+input:focus::after{
+  transform: scaleX(1);
+  transition:transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
+} */
+.MuiInputBase-root::after{
+    border-bottom:1px solid gold  !important;
+    transform: scaleX(0);
+    transition:transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms !important;
+}
+.MuiInputBase-root:focus::after{
+  transform: scaleX(1) !important;
+}
+.MuiInputBase-input:focus ~ label{
+  color: yellow !important;
+}
+.css-1c2i806-MuiFormLabel-root-MuiInputLabel-root.Mui-focused{
+  color: gold !important;
+}
+
