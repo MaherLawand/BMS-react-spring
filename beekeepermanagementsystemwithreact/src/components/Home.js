@@ -19,7 +19,7 @@ const Home = () => {
             {
             method:"GET",
             headers:{
-                "Content-Type":"application/json/; charset=UTF-8",
+                "Content-Type":"application/json/",
            },
         })
             .then((res) => res.json())
@@ -35,13 +35,11 @@ const Home = () => {
     //             decodeURIComponent(paramms)           
     //     })
     // }
-    console.log(user);
     return ( 
         <>  
             {/* <div className="backgroundImageWrapper">
                 <img src={image} className="Hive-bg" alt="bg" />
             </div> */}
-            
             <div className="introandreg">
                     {user ?
                     <div className='login'>

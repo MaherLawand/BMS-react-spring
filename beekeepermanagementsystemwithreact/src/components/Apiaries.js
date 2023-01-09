@@ -18,7 +18,7 @@ const Apiaries = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading]= useState(true);
 
-    const chunkSize = 14;
+    
     const fetchApiaries = async () => {
         try{
             await fetch(`http://localhost:8080/apiary/getAllApiariesAsc/${user.userId}`,{
@@ -44,6 +44,7 @@ const Apiaries = () => {
             setLoading(false);
         }
     },[])
+    const chunkSize = 14;
     useEffect(() => {
       if (myArray) {
         const numChunks = Math.ceil(myArray.length / chunkSize);

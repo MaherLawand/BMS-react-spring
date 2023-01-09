@@ -8,17 +8,12 @@ import classNames from 'classnames';
 import _ from 'lodash';
 
 const Registration = () => {
-    const [firstName,setFirstName]=useState(null);
-    const [lastName,setLastName]=useState(null);
-    const [address,setAddress]=useState(null);
-    const [email,setEmail]=useState(null);
-    const [password,setPassword]=useState(null);
-    const [user,setUser]= useState(null)
-    const [takenEmail,setTakenEmail] = useState(false)
-    const [loading,setLoading] = useState(false)
+    const [email,setEmail] = useState(null);
+    const [user,setUser]= useState(null);
+    const [takenEmail,setTakenEmail] = useState(false);
+    const [loading,setLoading] = useState(false);
     const FetchId =async () => {
         try{
-            setLoading(true);
             await fetch(decodeURIComponent(`http://localhost:8080/users/getUser/?` + new URLSearchParams({
                 email: email,
             })),  
@@ -35,11 +30,8 @@ const Registration = () => {
         }catch(error){
             console.log(error);
             setTakenEmail(false)
-        }finally{
-            setLoading(false)
         }
     }
-    const debouncedFetchId = _.debounce(FetchId,2000);
     const HandleSubmit =async (e) => {
         e.preventDefault();
         try{
@@ -48,17 +40,11 @@ const Registration = () => {
             headers:{
                 "Content-Type":"application/json",
             },
-            body:JSON.stringify({
-                firstName,
-                lastName,
-                address,
-                email,
-                password
-            })
+            body:JSON.stringify(userDetails)
         })
             .then((res) => res.json())
             .then((data) => console.log(data))
-            Router.push("/Login");
+            Router.push("/"); // fix
         }catch(error){
             console.log(error);
         }
@@ -83,7 +69,6 @@ const Registration = () => {
     });
     debounce.current(value);
     };
-
     useEffect(() => {
         if (email) {
             FetchId();
