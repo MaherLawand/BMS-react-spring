@@ -14,4 +14,5 @@ public interface ApiaryService {
     public List<Apiary> getAllApiaries();
 
     public List<Apiary> getAllApiariesAsc(int id);
+    public Apiary getApiarybySN(int id , int ApiarySerialNb);
 }

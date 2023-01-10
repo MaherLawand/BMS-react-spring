@@ -13,4 +13,8 @@ public interface ApiaryRepository extends JpaRepository<Apiary,Integer>{
     public List<Apiary> getAllApiariesbyAsc(int id);
 
 
+    public Apiary getApiarybySN(int id ,int ApiarySerialNb);
+
+
 }
+

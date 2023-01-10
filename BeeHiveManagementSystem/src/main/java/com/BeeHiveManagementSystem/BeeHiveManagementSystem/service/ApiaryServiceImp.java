@@ -32,4 +32,8 @@ public class ApiaryServiceImp implements ApiaryService{
     public List<Apiary> getAllApiariesAsc(int id) {
         return apiaryRepository.getAllApiariesbyAsc(id);
     }
+    @Override
+    public Apiary getApiarybySN(int id ,int ApiarySerialNb){
+        return apiaryRepository.getApiarybySN(id, ApiarySerialNb);
+    }
 }

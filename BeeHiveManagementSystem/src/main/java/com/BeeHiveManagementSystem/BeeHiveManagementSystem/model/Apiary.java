@@ -9,7 +9,8 @@ import jakarta.persistence.NamedQuery;
 
 @Entity
 @NamedQueries(value = {
-        @NamedQuery(name = "Apiary.getAllApiariesbyAsc", query = "SELECT a FROM Apiary a WHERE a.user_id=?1 ORDER BY a.ApiarySerialNb ASC")
+        @NamedQuery(name = "Apiary.getAllApiariesbyAsc", query = "SELECT a FROM Apiary a WHERE a.user_id=?1 ORDER BY a.ApiarySerialNb ASC"),
+        @NamedQuery(name= "Apiary.getApiarybySN" , query ="SELECT a FROM Apiary a WHERE a.user_id=?1 AND a.ApiarySerialNb=?2")
 })
 public class Apiary {
     @Id
