@@ -9,6 +9,7 @@ import logo from '../logo.svg'
 import Loading from '../images/loading.svg';
 import ControlPointIcon from '@mui/icons-material/ControlPoint';
 import LoadingBee from './LoadingBee';
+import { Link } from 'react-router-dom';
 const Apiaries = () => {
     
     const [myArray, setMyArray] = useState(null);
@@ -94,14 +95,13 @@ const Apiaries = () => {
                 ))}
                 {endIndex===chunks.length-1 && <div className="apiaryBoxes"> 
                     <div className='apiarySerialNb'>
-                        <ControlPointIcon/>
+                        <Link to="/NewApiary"> <ControlPointIcon/> </Link>
                     </div> 
                  </div>}
                 </div>
                 
             </SwiperSlide>
         ))}
-        
         </Swiper>}
         </div>       
     )

@@ -3,7 +3,7 @@ import TextField from '@mui/material/TextField';
 import '../css/Registration.css';
 import '../css/Input.css';
 import { useState,useEffect, useRef } from 'react';
-import {BrowserRouter as Router} from 'react-router-dom';
+import {BrowserRouter as Router, Link} from 'react-router-dom';
 import classNames from 'classnames';
 import _ from 'lodash';
 

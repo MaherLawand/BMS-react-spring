@@ -7,6 +7,8 @@ import ErrorPage from './components/ErrorPage';
 import Apiaries from './components/Apiaries';
 import { UserContext } from './components/UserContext';
 import { useState } from 'react';
+import NewApiary from './components/NewApiary';
+import Stock from './components/Stock';
 
 function App() {
   const [user,setUser] = useState(null);
@@ -24,6 +26,12 @@ function App() {
         </Route>
         <Route path="/Apiaries">
           <Apiaries />
+        </Route>
+        <Route path="/newApiary">
+          <NewApiary />
+        </Route>
+        <Route path="/Stock">
+          <Stock />
         </Route>
         <Route path="*">
           <ErrorPage />

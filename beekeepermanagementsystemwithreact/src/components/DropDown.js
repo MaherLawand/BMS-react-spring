@@ -89,9 +89,10 @@ export default function DropDown() {
                     aria-labelledby="composition-button"
                     onKeyDown={handleListKeyDown}
                   >
-                    <MenuItem onClick={handleClose}><Link to="/Apiaries"> Apiaries </Link></MenuItem>
-                    <MenuItem onClick={handleClose}>Sales And Stock</MenuItem>
-                    <MenuItem onClick={handleClose}>Customers</MenuItem>
+                    <MenuItem onClick={handleClose}> <Link to="/Apiaries"> Apiaries </Link> </MenuItem>
+                    <MenuItem onClick={handleClose}> <Link to="/Stock"> Stock </Link> </MenuItem>
+                    <MenuItem onClick={handleClose}> Sales </MenuItem>
+                    <MenuItem onClick={handleClose}> Customers </MenuItem>
                   </MenuList>
                 </ClickAwayListener>
               </Paper>

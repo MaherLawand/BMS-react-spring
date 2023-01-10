@@ -20,6 +20,8 @@ public class Stock {
     private int user_id;
     private Date day;
     private int NbofHives;
+
+    private int NbOfApiaries;
     private int TotalNbOfJars;//These are gonna be subtracted with the jars sold in sales;
     private int JarsFilledWithHoney;//The subtracted value above will be added here;
     private int TotalNbOfFood;
@@ -84,5 +86,9 @@ public class Stock {
     public void setTotalNbofDrugs(int totalNbofDrugs) {
         TotalNbofDrugs = totalNbofDrugs;
     }
+
+    public int getNbOfApiaries() { return NbOfApiaries; }
+
+    public void setNbOfApiaries(int nbOfApiaries) { NbOfApiaries = nbOfApiaries; }
     
 }

@@ -19,7 +19,6 @@ public class Apiary {
     private String ApiaryName;
     private int ApiarySerialNb;
     private String ApiaryLocation;
-    private int HiveSerialNb;
 
     public Apiary() {
 
@@ -56,13 +55,6 @@ public class Apiary {
     public void setApiaryLocation(String apiaryLocation) {
         ApiaryLocation = apiaryLocation;
     }
-
-    public int getHiveSerialNb() {
-        return HiveSerialNb;
-    }
-
-    public void setHiveSerialNb(int hiveSerialNb) {
-        HiveSerialNb = hiveSerialNb;
-    }
-
 }
+
+
