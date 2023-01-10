@@ -6,6 +6,7 @@ import AppBar from './components/AppBar';
 import ErrorPage from './components/ErrorPage';
 import Login from './components/Login';
 import Apiaries from './components/Apiaries';
+import NewApiary from './components/NewApiary';
 import { UserContext } from './components/UserContext';
 import { useState } from 'react';
 
@@ -25,6 +26,9 @@ function App() {
         </Route>
         <Route path="/Apiaries">
           <Apiaries />
+        </Route>
+        <Route path="/NewApiary">
+          <NewApiary/>
         </Route>
         <Route path="*">
           <ErrorPage />

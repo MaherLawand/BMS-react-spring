@@ -1,4 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
+import {Link} from 'react-router-dom';
 import { Navigation } from "swiper";
 import '../css/Apiaries.css';
 import "swiper/css";
@@ -71,6 +72,14 @@ const Apiaries = () => {
                     </div> 
                  </div>
                 ))}
+<<<<<<< Updated upstream
+=======
+                {endIndex===chunks.length-1 && <div className="apiaryBoxes"> 
+                    <div className='apiarySerialNb'>
+                       <Link to="/NewApiary"><ControlPointIcon/></Link>
+                    </div> 
+                 </div>}
+>>>>>>> Stashed changes
                 </div>
             </SwiperSlide>
         ))}
