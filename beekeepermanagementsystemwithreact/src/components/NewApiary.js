@@ -19,6 +19,7 @@ const NewApiary = () => {
     const {user,setUser} = useContext(UserContext);
     const [takenApiarySN,setTakenApiarySN] = useState(false);
     const [loading,setLoading] = useState(false);
+
     const FetchApiarySN =async () => {
         try{
             await fetch(decodeURIComponent(`http://localhost:8080/apiary/getApiarybySN?` + new URLSearchParams({
@@ -40,6 +41,7 @@ const NewApiary = () => {
             setTakenApiarySN(false)
         }
     }
+
     const HandleSubmit =async (e) => {
         e.preventDefault();
         try{
@@ -48,7 +50,12 @@ const NewApiary = () => {
             headers:{
                 "Content-Type":"application/json",
             },
-            body:JSON.stringify(ApiaryDetails)
+            body:JSON.stringify({
+                user_id:user.userId,
+                apiaryLocation,
+                apiaryName,
+                apiarySerialNb:apiarySN
+            })
         })
             .then((res) => res.json())
             .then((data) => console.log(data))
@@ -58,12 +65,6 @@ const NewApiary = () => {
         }
     }
     
-    const [ApiaryDetails,setApiaryDetails] = useState({
-        apiaryLocation:"",
-        apiaryName:"",
-        apiarySerialNumber:"",
-        
-    });
     const debounce = useRef(_.debounce((apiarySN) => setApiarySN(apiarySN), 800));
 
     // const HandleChange = (e) => {
@@ -73,12 +74,13 @@ const NewApiary = () => {
     // });
     // debounce.current(value);
     // };
+
     useEffect(() => {
         if (apiarySN) {
             FetchApiarySN();
         }
     }, [apiarySN]);
-    console.log(apiarySN);
+
     return ( 
         <>
         <form className="ApiaryPageWrapper" onSubmit={HandleSubmit}>

@@ -44,7 +44,7 @@ const Stock = () => {
     const newOneIsActive = { ...oneIsActive };
     Object.keys(newActive).forEach((key) => {
       newActive[key] = key === divName ? active[divName] : 0;
-      newOneIsActive[key] = key !== divName ? oneIsActive[divName] : true;
+      newOneIsActive[key] = key === divName ? true : false;
     });
     setActive(newActive);
     setOneisActive(newOneIsActive);
