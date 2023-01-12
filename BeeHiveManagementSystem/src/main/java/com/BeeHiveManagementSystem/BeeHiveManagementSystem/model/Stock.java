@@ -20,7 +20,6 @@ public class Stock {
     private int user_id;
     private Date day;
     private int NbofHives;
-
     private int NbOfApiaries;
     private int TotalNbOfJars;//These are gonna be subtracted with the jars sold in sales;
     private int JarsFilledWithHoney;//The subtracted value above will be added here;

@@ -12,6 +12,8 @@ const Registration = () => {
     const [user,setUser]= useState(null);
     const [takenEmail,setTakenEmail] = useState(false);
     const [loading,setLoading] = useState(false);
+
+    const date = new Date();
     const FetchId =async () => {
         try{
             await fetch(decodeURIComponent(`http://localhost:8080/users/getUser/?` + new URLSearchParams({
@@ -43,13 +45,32 @@ const Registration = () => {
             body:JSON.stringify(userDetails)
         })
             .then((res) => res.json())
-            .then((data) => console.log(data))
-            Router.push("/"); // fix
+            .then((data) => setUser(data))
         }catch(error){
             console.log(error);
         }
+        
     }
-    
+    useEffect(()=>{
+        if(user!==null){
+            fetch('http://localhost:8080/stock/addStock',{
+                        method:"POST",
+                        headers:{
+                            "Content-Type":"application/json",
+                        },
+                        body:JSON.stringify({
+                            user_id:user.userId,
+                            day:date,
+                            nbofHives:0,
+                            nbOfApiaries:0,
+                            totalNbOfJars:0,
+                            jarsFilledWithHoney:0,
+                            totalNbOfFood:0,
+                            totalNbofDrugs:0
+                        })
+                    });                   
+        }
+    },[user])
     const [userDetails,setUserDetails] = useState({
         firstName:"",
         lastName:"",
