@@ -13,9 +13,11 @@ import com.BeeHiveManagementSystem.BeeHiveManagementSystem.model.Stock;
 @Service
 public interface StockService {
     
+
     public Stock newStock(Stock stock);
 
     public List<Stock> getAllStock();
     
-    public List<Stock> getLatestStock(int id);
+    public Stock getLatestStock(int id);
+
 }

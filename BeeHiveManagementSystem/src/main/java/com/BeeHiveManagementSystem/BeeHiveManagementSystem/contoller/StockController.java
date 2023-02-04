@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.BeeHiveManagementSystem.BeeHiveManagementSystem.model.Stock;
@@ -18,21 +19,22 @@ import com.BeeHiveManagementSystem.BeeHiveManagementSystem.service.StockService;
 @RequestMapping("/stock")
 @CrossOrigin
 public class StockController {
-    
+
     @Autowired
     private StockService stockService;
-    
+
     @PostMapping("/addStock")
-    public void add(@RequestBody Stock stock){
+    public void add(@RequestBody Stock stock) {
         stockService.newStock(stock);
     }
 
     @GetMapping("/getAllStock")
-    public List<Stock> getAllStock(){
+    public List<Stock> getAllStock() {
         return stockService.getAllStock();
     }
-    @GetMapping("/getLatestStock/{id}")
-    public List<Stock> getLatestStock(@PathVariable int id){
+
+    @GetMapping("/getLatestStock/")
+    public Stock getLatestStock(@RequestParam("id") int id) {
         return stockService.getLatestStock(id);
     }
 

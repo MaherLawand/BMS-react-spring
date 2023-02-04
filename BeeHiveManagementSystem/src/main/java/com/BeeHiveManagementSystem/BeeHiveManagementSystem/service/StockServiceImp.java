@@ -29,7 +29,7 @@ public class StockServiceImp implements StockService{
         return stockRepository.findAll();
     }
     @Override
-    public List<Stock> getLatestStock(int id){
+    public Stock getLatestStock(int id){
         return stockRepository.findAllByLatestStock(id);
     }
     

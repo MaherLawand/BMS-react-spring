@@ -11,7 +11,7 @@ import jakarta.persistence.NamedQuery;
 
 @Entity
 @NamedQueries(value={
-    @NamedQuery(name="Stock.findAllByLatestStock" , query="SELECT s FROM Stock s ORDER BY s.day DESC LIMIT 1")
+    @NamedQuery(name="Stock.findAllByLatestStock" , query="SELECT s FROM Stock s WHERE user_id=?1 ORDER BY s.day DESC LIMIT 1 ")
 })
 public class Stock {
     @Id
