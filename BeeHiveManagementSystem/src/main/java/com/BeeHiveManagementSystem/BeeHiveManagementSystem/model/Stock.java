@@ -11,7 +11,7 @@ import jakarta.persistence.NamedQuery;
 
 @Entity
 @NamedQueries(value={
-    @NamedQuery(name="Stock.findAllByLatestStock" , query="SELECT s FROM Stock s ORDER BY s.day DESC LIMIT 1")
+        @NamedQuery(name="Stock.findAllByLatestStock" , query="SELECT s FROM Stock s WHERE user_id=?1 ORDER BY s.day DESC LIMIT 1 ")
 })
 public class Stock {
     @Id
@@ -20,16 +20,17 @@ public class Stock {
     private int user_id;
     private Date day;
     private int NbofHives;
+
     private int NbOfApiaries;
     private int TotalNbOfJars;//These are gonna be subtracted with the jars sold in sales;
     private int JarsFilledWithHoney;//The subtracted value above will be added here;
     private int TotalNbOfFood;
     private int TotalNbofDrugs;
-    
+
     public Stock(){
 
     }
-    
+
     public int getNbofHives() {
         return NbofHives;
     }
@@ -82,12 +83,16 @@ public class Stock {
         return TotalNbofDrugs;
     }
 
+    public int getNbOfApiaries() {
+        return NbOfApiaries;
+    }
+
+    public void setNbOfApiaries(int nbOfApiaries) {
+        NbOfApiaries = nbOfApiaries;
+    }
+
     public void setTotalNbofDrugs(int totalNbofDrugs) {
         TotalNbofDrugs = totalNbofDrugs;
     }
 
-    public int getNbOfApiaries() { return NbOfApiaries; }
-
-    public void setNbOfApiaries(int nbOfApiaries) { NbOfApiaries = nbOfApiaries; }
-    
 }

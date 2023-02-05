@@ -5,13 +5,20 @@ import CloseIcon from '@mui/icons-material/Close';
 import { Button } from '@mui/material';
 import { useEffect } from 'react';
 import { UserContext } from './UserContext';
+
+/* 
+
+    ! When Getting Stock and adding multiple on same day, its getting the oldest stock on the current day!
+
+*/
+
 const Stock = () => {
-    const [nbOfHives,setNbOfHives] = useState("");
-    const [nbOfApiaries,setNbOfApiaries] = useState("");
-    const [nbOfJarsFilledWithHoney,setNbOfJarsFilledWithHoney] = useState("");
-    const [nbOfEmptyJars,setNbOfEmptyJars] = useState("");
-    const [nbOfFood,setNbOfFood] = useState("");
-    const [nbOfDrugs,setNbOfDrugs] = useState("");
+    const [nbOfHives,setNbOfHives] = useState(0);
+    const [nbOfApiaries,setNbOfApiaries] = useState(0);
+    const [nbOfJarsFilledWithHoney,setNbOfJarsFilledWithHoney] = useState(0);
+    const [nbOfEmptyJars,setNbOfEmptyJars] = useState(0);
+    const [nbOfFood,setNbOfFood] = useState(0);
+    const [nbOfDrugs,setNbOfDrugs] = useState(0);
     const [oldStock,setOldStock] = useState(null);
     const {user,setUser} = useContext(UserContext);
     const date = new Date();
@@ -56,7 +63,6 @@ const Stock = () => {
                     id: user.userId,
                 })),  
                 {
-                mode: 'no-cors',
                 method:"GET",
                 headers:{
                     "Content-Type":"application/json/; charset=UTF-8",
@@ -80,7 +86,6 @@ const Stock = () => {
             e.preventDefault();
             try{
                 await fetch(`http://localhost:8080/stock/addStock`,{
-                
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json",
@@ -148,16 +153,16 @@ const Stock = () => {
                     setNbOfDrugs(e.target.value)
                 }} value={nbOfDrugs}/>}
 
-                {(nbOfHives!=="" || nbOfApiaries!=="" || nbOfJarsFilledWithHoney!=="" || nbOfEmptyJars!=="" || nbOfFood!=="" || nbOfDrugs!=="") && <Button  sx={{
-  backgroundColor: ((nbOfHives === '' || nbOfHives === "") &&
-                    (nbOfApiaries === '' || nbOfApiaries === "") &&
-                    (nbOfJarsFilledWithHoney === '' || nbOfJarsFilledWithHoney === "") &&
-                    (nbOfEmptyJars === '' || nbOfEmptyJars === "") &&
-                    (nbOfFood === '' || nbOfFood === "") &&
-                    (nbOfDrugs === '' || nbOfDrugs === ""))
-                    ? "" : "green",
+                {(nbOfHives!==0 || nbOfApiaries!==0 || nbOfJarsFilledWithHoney!==0 || nbOfEmptyJars!==0 || nbOfFood!==0 || nbOfDrugs!==0) && <Button  sx={{
+  backgroundColor: ((nbOfHives === '' || nbOfHives === 0) &&
+                    (nbOfApiaries === '' || nbOfApiaries === 0) &&
+                    (nbOfJarsFilledWithHoney === '' || nbOfJarsFilledWithHoney === 0) &&
+                    (nbOfEmptyJars === '' || nbOfEmptyJars === 0) &&
+                    (nbOfFood === '' || nbOfFood === 0) &&
+                    (nbOfDrugs === '' || nbOfDrugs === 0))
+                    ? 0 : "green",
   color: "white"
-}}  type="submit" disabled={((nbOfHives==='' || nbOfHives==="") && (nbOfApiaries==='' || nbOfApiaries==="") && (nbOfJarsFilledWithHoney==='' || nbOfJarsFilledWithHoney==="") && (nbOfEmptyJars==='' || nbOfEmptyJars==="") && (nbOfFood==='' || nbOfFood==="") && (nbOfDrugs==='' || nbOfDrugs===""))} > Save Changes! </Button>}
+}}  type="submit" disabled={((nbOfHives==='' || nbOfHives===0) && (nbOfApiaries==='' || nbOfApiaries===0) && (nbOfJarsFilledWithHoney==='' || nbOfJarsFilledWithHoney===0) && (nbOfEmptyJars==='' || nbOfEmptyJars===0) && (nbOfFood==='' || nbOfFood===0) && (nbOfDrugs==='' || nbOfDrugs===0))} > Save Changes! </Button>}
 
                 
                 { (oneIsActive.div1 || oneIsActive.div2 || oneIsActive.div3 || oneIsActive.div4 || oneIsActive.div5 || oneIsActive.div6) && <div> <CloseIcon sx={{color:"white",fontSize:"2.5rem"}} onClick={handleShowAll} /> </div>}

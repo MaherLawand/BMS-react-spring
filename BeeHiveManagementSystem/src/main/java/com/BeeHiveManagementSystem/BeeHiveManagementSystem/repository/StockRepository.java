@@ -9,7 +9,7 @@ import com.BeeHiveManagementSystem.BeeHiveManagementSystem.model.Stock;
 
 @Repository
 public interface StockRepository extends JpaRepository<Stock,Integer>{
-    
-    public List<Stock> findAllByLatestStock(int id);
-    
+
+    public Stock findAllByLatestStock(int id);
+
 }

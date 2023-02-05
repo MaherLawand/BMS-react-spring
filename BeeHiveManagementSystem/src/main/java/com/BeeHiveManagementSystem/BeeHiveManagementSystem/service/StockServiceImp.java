@@ -10,7 +10,7 @@ import com.BeeHiveManagementSystem.BeeHiveManagementSystem.repository.StockRepos
 
 @Service
 public class StockServiceImp implements StockService{
-    
+
     @Autowired
     private StockRepository stockRepository;
 
@@ -29,8 +29,8 @@ public class StockServiceImp implements StockService{
         return stockRepository.findAll();
     }
     @Override
-    public List<Stock> getLatestStock(int id){
+    public Stock getLatestStock(int id){
         return stockRepository.findAllByLatestStock(id);
     }
-    
+
 }
