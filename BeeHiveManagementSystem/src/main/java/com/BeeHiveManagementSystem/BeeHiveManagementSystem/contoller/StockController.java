@@ -38,4 +38,9 @@ public class StockController {
         return stockService.getLatestStock(id);
     }
 
+    @GetMapping("/getAllStockByUser/")
+    public List<Stock> getAllStockByUser(@RequestParam("id") int id) {
+        return stockService.getAllStockByUser(id);
+    }
+
 }

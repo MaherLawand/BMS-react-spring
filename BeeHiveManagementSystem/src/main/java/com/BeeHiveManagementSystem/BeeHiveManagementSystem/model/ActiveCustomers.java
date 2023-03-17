@@ -1,11 +1,11 @@
 package com.BeeHiveManagementSystem.BeeHiveManagementSystem.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@NamedQueries(value={
+        @NamedQuery(name="ActiveCustomers.findAllActiveCustomers" , query="SELECT a FROM ActiveCustomers a WHERE user_id=?1 ORDER BY a.FName ASC")
+})
 public class ActiveCustomers {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

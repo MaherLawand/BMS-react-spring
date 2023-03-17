@@ -36,6 +36,20 @@
   color: yellow !important;
 }
 
+#outlined-basic{
+  color: yellow !important;
+  border: 1px solid yellow;
+  border-radius: 5px;
+  outline: 0;
+}
+#outlined-basic:hover{
+  border-color:yellow !important;
+}
+#outlined-basic:focus{
+  border-color:yellow !important;
+}
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

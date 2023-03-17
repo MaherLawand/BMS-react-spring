@@ -1,0 +1,12 @@
+.wrapper{
+    border: 1px solid yellow;
+    width: 100%;
+    height: 100%;
+}
+.recharts-tooltip-label{
+    color: black !important;
+}
+.profit-wrapper{
+    width: 100%;
+    height:100%;
+}

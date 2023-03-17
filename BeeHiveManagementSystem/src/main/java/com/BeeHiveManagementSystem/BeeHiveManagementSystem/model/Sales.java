@@ -1,24 +1,29 @@
 package com.BeeHiveManagementSystem.BeeHiveManagementSystem.model;
 
-import java.sql.Date;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+
+import java.util.Date;
+
+import jakarta.persistence.*;
 
 @Entity
+@NamedQueries(value={
+        @NamedQuery(name="Sales.findAllByMonth" , query="SELECT s FROM Sales s WHERE s.user_id=?1 ORDER BY s.day ASC")
+})
 public class Sales {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int row;
     private int user_id;
     private Date day;
-    private int HivesSold;
-    private int JarsSold;
-    private int FoodSold;
-    private int DrugsSold;
-    private double Expenses;
+    private int nbOfHivesSold;
+    private int nbOfHoneyJarsSold;
+    private int nbOfFoodSold;
+    private int nbOfDrugsSold;
+    private int hivePrice;
+    private int honeyJarPrice;
+    private int foodPrice;
+    private int drugPrice;
     
     public Sales(){
 
@@ -40,46 +45,67 @@ public class Sales {
         this.day = day;
     }
 
-    public int getHivesSold() {
-        return HivesSold;
+    public int getNbOfHivesSold() {
+        return nbOfHivesSold;
     }
 
-    public void setHivesSold(int hivesSold) {
-        HivesSold = hivesSold;
+    public void setNbOfHivesSold(int nbOfHivesSold) {
+        this.nbOfHivesSold = nbOfHivesSold;
     }
 
-    public int getJarsSold() {
-        return JarsSold;
+    public int getNbOfHoneyJarsSold() {
+        return nbOfHoneyJarsSold;
     }
 
-    public void setJarsSold(int jarsSold) {
-        JarsSold = jarsSold;
+    public void setNbOfHoneyJarsSold(int nbOfHoneyJarsSold) {
+        this.nbOfHoneyJarsSold = nbOfHoneyJarsSold;
     }
 
-    public int getFoodSold() {
-        return FoodSold;
+    public int getNbOfFoodSold() {
+        return nbOfFoodSold;
     }
 
-    public void setFoodSold(int foodSold) {
-        FoodSold = foodSold;
+    public void setNbOfFoodSold(int nbOfFoodSold) {
+        this.nbOfFoodSold = nbOfFoodSold;
     }
 
-    public int getDrugsSold() {
-        return DrugsSold;
+    public int getNbOfDrugsSold() {
+        return nbOfDrugsSold;
     }
 
-    public void setDrugsSold(int drugsSold) {
-        DrugsSold = drugsSold;
+    public void setNbOfDrugsSold(int nbOfDrugsSold) {
+        this.nbOfDrugsSold = nbOfDrugsSold;
     }
 
-    public double getExpenses() {
-        return Expenses;
+    public int getHivePrice() {
+        return hivePrice;
     }
 
-    public void setExpenses(double expenses) {
-        Expenses = expenses;
+    public void setHivePrice(int hivePrice) {
+        this.hivePrice = hivePrice;
     }
-    
 
-    
+    public int getHoneyJarPrice() {
+        return honeyJarPrice;
+    }
+
+    public void setHoneyJarPrice(int honeyJarPrice) {
+        this.honeyJarPrice = honeyJarPrice;
+    }
+
+    public int getFoodPrice() {
+        return foodPrice;
+    }
+
+    public void setFoodPrice(int foodPrice) {
+        this.foodPrice = foodPrice;
+    }
+
+    public int getDrugPrice() {
+        return drugPrice;
+    }
+
+    public void setDrugPrice(int drugPrice) {
+        this.drugPrice = drugPrice;
+    }
 }

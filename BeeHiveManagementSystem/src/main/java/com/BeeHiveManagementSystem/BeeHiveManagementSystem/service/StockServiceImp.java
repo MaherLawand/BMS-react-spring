@@ -33,4 +33,9 @@ public class StockServiceImp implements StockService{
         return stockRepository.findAllByLatestStock(id);
     }
 
+    @Override
+    public List<Stock> getAllStockByUser(int id){
+        return stockRepository.findAllByUser(id);
+    }
+
 }

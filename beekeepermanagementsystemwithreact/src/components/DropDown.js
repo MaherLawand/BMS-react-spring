@@ -91,8 +91,9 @@ export default function DropDown() {
                   >
                     <MenuItem onClick={handleClose}> <Link to="/Apiaries"> Apiaries </Link> </MenuItem>
                     <MenuItem onClick={handleClose}> <Link to="/Stock"> Stock </Link> </MenuItem>
-                    <MenuItem onClick={handleClose}> Sales </MenuItem>
-                    <MenuItem onClick={handleClose}> Customers </MenuItem>
+                    <MenuItem onClick={handleClose}> <Link to="/Sales"> Sales </Link> </MenuItem>
+                    <MenuItem onClick={handleClose}> <Link to="/Customers"> Customers </Link> </MenuItem>
+                    <MenuItem onClick={handleClose}> <Link to="/Statistics"> Statistics </Link> </MenuItem>
                   </MenuList>
                 </ClickAwayListener>
               </Paper>

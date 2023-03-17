@@ -1,0 +1,37 @@
+.Pricing-wrapper{
+    margin-top: 60px;
+    box-sizing: border-box;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 35px;
+}
+.price-div{
+    min-width: 200px;
+    height: 150px;
+    border-radius: 100px;
+    border: 1px solid gold;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Price-Error{
+    margin-top: 40px;
+    color: red;
+    font-size: large;
+}
+.Sales-div{
+    background-color: rgba(0, 0, 0, 0.637);
+    min-width: 300px;
+    padding: 50px;
+    height: 150px;
+    border-radius: 100px;
+    border: 1px solid gold;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

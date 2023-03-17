@@ -36,8 +36,8 @@ public class ActiveCustomersImp implements ActiveCustomersService{
         return activeCustomersRepository.findAll();
     }
     @Override
-    public ActiveCustomers delActiveCustomer(String email) throws JsonProcessingException{
-        List<ActiveCustomers> activecustomers= activeCustomersRepository.findAll();;
+    public ActiveCustomers delActiveCustomer(String email,int id) throws JsonProcessingException{
+        List<ActiveCustomers> activecustomers= activeCustomersRepository.findAllActiveCustomers(id);
         ActiveCustomers temp=null;
         for(int i=0;i<activecustomers.size();i++){
             if(activecustomers.get(i).getEmail().equals(email)){
@@ -51,6 +51,11 @@ public class ActiveCustomersImp implements ActiveCustomersService{
         banned.setBanned(true);
         bannedCustomersRepository.save(banned);
         return temp;
+    }
+
+    @Override
+    public List<ActiveCustomers> findAllActiveCustomers(int id){
+        return activeCustomersRepository.findAllActiveCustomers(id);
     }
 
 }

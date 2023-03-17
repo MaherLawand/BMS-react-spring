@@ -12,7 +12,7 @@ import LoadingBee from './LoadingBee';
 import { Link } from 'react-router-dom';
 const Apiaries = () => {
     
-    const [myArray, setMyArray] = useState(null);
+    const [myArray, setMyArray] = useState([]);
     const [chunks, setChunks] = useState(null);
     const {user,setUser} = useContext(UserContext);
 
@@ -63,6 +63,7 @@ const Apiaries = () => {
     console.log(chunks);
     return (
         <div className='pageWrap'>
+            
         {/* <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
             <SwiperSlide className="Content"><div className="apiaries"> 
             {error && <div> {error} </div>}
@@ -87,7 +88,9 @@ const Apiaries = () => {
         {chunks && chunks.map((chunk,endIndex)=> (           
             <SwiperSlide className="Content"><div className="apiaries">
                 {chunk.map((item) => (
-                <div className="apiaryBoxes" key={item.row}> 
+                <div className="apiaryBoxes" key={item.row} onClick={(e)=>{
+                    console.log(e)
+                }}> 
                     <div className='apiarySerialNb' key={item.row}>
                         {item.apiarySerialNb} 
                     </div> 
@@ -103,6 +106,11 @@ const Apiaries = () => {
             </SwiperSlide>
         ))}
         </Swiper>}
+        {(myArray.length===0 && user) && <div className="apiaryBoxes"> 
+                    <div className='apiarySerialNb'>
+                        <Link to="/NewApiary"> <ControlPointIcon/> </Link>
+                    </div> 
+                 </div>}
         </div>       
     )
 }

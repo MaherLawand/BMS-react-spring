@@ -20,4 +20,6 @@ public interface StockService {
 
     public Stock getLatestStock(int id);
 
+    public List<Stock> getAllStockByUser(int id);
+
 }

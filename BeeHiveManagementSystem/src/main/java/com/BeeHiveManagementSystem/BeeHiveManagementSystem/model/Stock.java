@@ -1,6 +1,6 @@
 package com.BeeHiveManagementSystem.BeeHiveManagementSystem.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,7 +11,8 @@ import jakarta.persistence.NamedQuery;
 
 @Entity
 @NamedQueries(value={
-        @NamedQuery(name="Stock.findAllByLatestStock" , query="SELECT s FROM Stock s WHERE user_id=?1 ORDER BY s.day DESC LIMIT 1 ")
+        @NamedQuery(name="Stock.findAllByLatestStock" , query="SELECT s FROM Stock s WHERE user_id=?1 ORDER BY s.day DESC LIMIT 1 "),
+        @NamedQuery(name="Stock.findAllByUser" , query="SELECT s FROM Stock s WHERE s.user_id=?1 ORDER BY s.day ASC ")
 })
 public class Stock {
     @Id
@@ -20,12 +21,57 @@ public class Stock {
     private int user_id;
     private Date day;
     private int NbofHives;
-
+    private int priceOfAllHives;
     private int NbOfApiaries;
+    private int priceOfAllApiaries;
     private int TotalNbOfJars;//These are gonna be subtracted with the jars sold in sales;
+    private int priceOfAllJars;
     private int JarsFilledWithHoney;//The subtracted value above will be added here;
     private int TotalNbOfFood;
+    private int priceOfAllFood;
+
+    public int getPriceOfAllHives() {
+        return priceOfAllHives;
+    }
+
+    public void setPriceOfAllHives(int priceOfAllHives) {
+        this.priceOfAllHives = priceOfAllHives;
+    }
+
+    public int getPriceOfAllApiaries() {
+        return priceOfAllApiaries;
+    }
+
+    public void setPriceOfAllApiaries(int priceOfAllApiaries) {
+        this.priceOfAllApiaries = priceOfAllApiaries;
+    }
+
+    public int getPriceOfAllJars() {
+        return priceOfAllJars;
+    }
+
+    public void setPriceOfAllJars(int priceOfAllJars) {
+        this.priceOfAllJars = priceOfAllJars;
+    }
+
+    public int getPriceOfAllFood() {
+        return priceOfAllFood;
+    }
+
+    public void setPriceOfAllFood(int priceOfAllFood) {
+        this.priceOfAllFood = priceOfAllFood;
+    }
+
+    public int getPriceOfAllDrugs() {
+        return priceOfAllDrugs;
+    }
+
+    public void setPriceOfAllDrugs(int priceOfAllDrugs) {
+        this.priceOfAllDrugs = priceOfAllDrugs;
+    }
+
     private int TotalNbofDrugs;
+    private int priceOfAllDrugs;
 
     public Stock(){
 

@@ -1,5 +1,6 @@
 package com.BeeHiveManagementSystem.BeeHiveManagementSystem.service;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,11 @@ public class SalesServiceImp implements SalesService {
     @Override
     public List<Sales> getAllSales(){
         return salesRepository.findAll();
+    }
+
+    @Override
+    public List<Sales> getAllSalesByMonth(int id){
+        return salesRepository.findAllByMonth(id);
     }
 
 }

@@ -66,9 +66,46 @@ const Registration = () => {
                             totalNbOfJars:0,
                             jarsFilledWithHoney:0,
                             totalNbOfFood:0,
-                            totalNbofDrugs:0
+                            totalNbofDrugs:0,
+                            priceOfAllHives:0,
+                            priceOfAllApiaries:0,
+                            priceOfAllJars:0,
+                            priceOfAllFood:0,
+                            priceOfAllDrugs:0
                         })
-                    });                   
+                    });
+             fetch('http://localhost:8080/pricing/addPricing',{
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json",
+                },
+                body:JSON.stringify({
+                    user_id:user.userId,
+                    day:date,
+                    hivePrice:0,
+                    honeyJarPrice:0,
+                    foodPrice:0,
+                    drugPrice:0                   
+                })
+            });     
+            fetch(`http://localhost:8080/sales/addSale`,{
+                    method:"POST",
+                    headers:{
+                        "Content-Type":"application/json",
+                    },
+                    body:JSON.stringify({
+                        user_id:user.userId,
+                        day:date,
+                        nbOfHivesSold:0,
+                        nbOfHoneyJarsSold:0,
+                        nbOfFoodSold:0,
+                        nbOfDrugsSold:0,
+                        hivePrice:0,
+                        honeyJarPrice:0,
+                        foodPrice:0,
+                        drugPrice:0
+                })
+                });                
         }
     },[user])
     const [userDetails,setUserDetails] = useState({

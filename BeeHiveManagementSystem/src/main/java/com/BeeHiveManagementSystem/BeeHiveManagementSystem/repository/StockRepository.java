@@ -11,5 +11,6 @@ import com.BeeHiveManagementSystem.BeeHiveManagementSystem.model.Stock;
 public interface StockRepository extends JpaRepository<Stock,Integer>{
 
     public Stock findAllByLatestStock(int id);
+    public List<Stock> findAllByUser(int id);
 
 }

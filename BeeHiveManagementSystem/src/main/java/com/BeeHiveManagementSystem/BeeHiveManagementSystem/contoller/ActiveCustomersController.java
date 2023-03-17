@@ -2,15 +2,9 @@ package com.BeeHiveManagementSystem.BeeHiveManagementSystem.contoller;
 
 import java.util.List;
 
+import com.BeeHiveManagementSystem.BeeHiveManagementSystem.model.Stock;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.BeeHiveManagementSystem.BeeHiveManagementSystem.model.ActiveCustomers;
 import com.BeeHiveManagementSystem.BeeHiveManagementSystem.service.ActiveCustomersService;
@@ -33,9 +27,14 @@ public class ActiveCustomersController{
     public List<ActiveCustomers> getAllActiveCustomerss(){
         return activeCustomersService.getAllActiveCustomers();
     }
-    @DeleteMapping("/deleteActiveCustomer/{email}")
-    public ActiveCustomers delActiveCustomers(@PathVariable String email) throws JsonProcessingException{
-        return activeCustomersService.delActiveCustomer(email);
+    @DeleteMapping("/deleteActiveCustomer/")
+    public ActiveCustomers delActiveCustomers(@RequestParam("email") String email,@RequestParam("id") int id) throws JsonProcessingException{
+        return activeCustomersService.delActiveCustomer(email,id);
 }
+
+    @GetMapping("/getAllActiveCustomers/")
+    public List<ActiveCustomers> findAllActiveCustomers(@RequestParam("id") int id) {
+        return activeCustomersService.findAllActiveCustomers(id);
+    }
 
 }

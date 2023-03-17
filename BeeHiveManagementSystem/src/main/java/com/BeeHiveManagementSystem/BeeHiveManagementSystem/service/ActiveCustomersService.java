@@ -14,5 +14,7 @@ public interface ActiveCustomersService {
 
     public List<ActiveCustomers> getAllActiveCustomers();
     
-    public ActiveCustomers delActiveCustomer(String email) throws JsonProcessingException;
+    public ActiveCustomers delActiveCustomer(String email,int id) throws JsonProcessingException;
+
+    public List<ActiveCustomers> findAllActiveCustomers(int id);
 }

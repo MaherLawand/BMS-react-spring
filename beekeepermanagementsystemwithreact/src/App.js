@@ -9,6 +9,10 @@ import { UserContext } from './components/UserContext';
 import { useState } from 'react';
 import NewApiary from './components/NewApiary';
 import Stock from './components/Stock';
+import Sales from './components/Sales';
+import Customers from './components/Customers';
+import Statistics from './components/Statistics';
+
 
 function App() {
   const [user,setUser] = useState(null);
@@ -21,17 +25,26 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/Registration">
+        <Route exact path="/Registration">
           <Registration />
         </Route>
-        <Route path="/Apiaries">
+        <Route exact path="/Apiaries">
           <Apiaries />
         </Route>
-        <Route path="/newApiary">
+        <Route exact path="/newApiary">
           <NewApiary />
         </Route>
-        <Route path="/Stock">
+        <Route exact path="/Stock">
           <Stock />
+        </Route>
+        <Route exact path="/Sales">
+          <Sales />
+        </Route>
+        <Route exact path="/Customers">
+          <Customers />
+        </Route>
+        <Route exact path="/Statistics">
+          <Statistics />
         </Route>
         <Route path="*">
           <ErrorPage />
